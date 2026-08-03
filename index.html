@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="URL／Query 工坊：解析、組裝 query／hash、encodeURIComponent。純前端。"
+    />
+    <title>URL／Query 工坊</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>URL／Query 工坊</h1>
+        <p class="tagline">解析 · 組裝 · encode · 資料不離開瀏覽器</p>
+      </header>
+
+      <p id="status" class="status" role="status">待命</p>
+
+      <label class="field"
+        ><span>完整 URL</span>
+        <textarea
+          id="url"
+          rows="3"
+          spellcheck="false"
+          placeholder="https://example.com/path?foo=1&bar=hello%20world#section"
+        ></textarea>
+      </label>
+
+      <div class="controls">
+        <button type="button" id="btn-parse" class="primary">解析</button>
+        <button type="button" id="btn-build" class="secondary">組裝</button>
+        <button type="button" id="btn-sample" class="secondary">範例</button>
+        <button type="button" id="btn-clear" class="secondary">清空</button>
+      </div>
+
+      <div class="grid">
+        <label class="field"
+          ><span>protocol</span>
+          <input id="protocol" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field"
+          ><span>username</span>
+          <input id="username" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field"
+          ><span>password</span>
+          <input id="password" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field"
+          ><span>hostname</span>
+          <input id="hostname" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field"
+          ><span>port</span>
+          <input id="port" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field wide"
+          ><span>pathname</span>
+          <input id="pathname" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+        <label class="field wide"
+          ><span>hash（含 #）</span>
+          <input id="hash" type="text" spellcheck="false" autocomplete="off"
+        /></label>
+      </div>
+
+      <section class="block">
+        <div class="block-head">
+          <h2>Query</h2>
+          <button type="button" id="btn-add" class="ghost">＋ 參數</button>
+        </div>
+        <div id="params" class="params"></div>
+      </section>
+
+      <section class="block">
+        <h2>字串工具</h2>
+        <label class="field"
+          ><span>原文</span>
+          <textarea id="codec-in" rows="2" spellcheck="false"></textarea>
+        </label>
+        <div class="controls">
+          <button type="button" id="btn-enc" class="secondary">
+            encodeURIComponent
+          </button>
+          <button type="button" id="btn-dec" class="secondary">
+            decodeURIComponent
+          </button>
+          <button type="button" id="btn-copy-codec" class="secondary">
+            複製結果
+          </button>
+        </div>
+        <label class="field"
+          ><span>結果</span>
+          <textarea id="codec-out" rows="2" readonly spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <p class="hint">
+        Playgrounds
+        <a href="https://samkuo.me/playgrounds/">遊樂場</a> 開源小品。編解碼族請看
+        Base 編解碼／JWT。
+      </p>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
